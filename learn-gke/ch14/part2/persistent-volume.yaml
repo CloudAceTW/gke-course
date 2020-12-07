@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: fileserver   #自訂名稱
+spec:
+ capacity:
+   storage: 1T      #storage 大小
+ accessModes:
+ - ReadWriteMany
+ nfs:
+   path: /sharefolder  #fileshare名稱
+   server: 10.244.134.58  #filestore主機IP

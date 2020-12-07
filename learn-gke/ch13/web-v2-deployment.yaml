@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-v2
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      run: web-v2
+  template:
+    metadata:
+      labels:
+        run: web-v2
+    spec:
+      containers:
+      - image: gcr.io/seminar-and-workshop/web-v2
+        imagePullPolicy: IfNotPresent
+        name: web-v2
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+
